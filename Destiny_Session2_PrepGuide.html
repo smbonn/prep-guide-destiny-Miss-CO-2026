@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Session 2 Prep Guide — Destiny Humphrey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:   #1A2F4E;
+  --navy2:  #243B61;
+  --gold:   #8B6914;
+  --gold2:  #C9A84C;
+  --gold3:  #F0DFA0;
+  --cream:  #FAF6F0;
+  --cream2: #F3EDE4;
+  --cream3: #EDE4D6;
+  --white:  #FFFFFF;
+  --text:   #2C2420;
+  --gray:   #6B6460;
+  --lgray:  #A09890;
+  --border: #DDD5C8;
+  --red:    #8B2020;
+  --green:  #2E7D32;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);min-height:100vh}
+
+/* HEADER */
+.site-header{background:var(--navy);padding:32px 48px 24px;position:relative;overflow:hidden}
+.site-header::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 40px,rgba(201,168,76,.04) 40px,rgba(201,168,76,.04) 80px);pointer-events:none}
+.header-inner{position:relative;max-width:1100px;margin:0 auto}
+.header-eyebrow{font-size:11px;font-weight:600;letter-spacing:.2em;color:var(--gold2);text-transform:uppercase;margin-bottom:6px}
+.header-name{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:var(--white);line-height:1.1;margin-bottom:4px}
+.header-name em{font-style:italic;color:var(--gold2)}
+.header-sub{font-size:13px;color:rgba(255,255,255,.5);font-weight:300;margin-bottom:20px}
+.header-pills{display:flex;gap:10px;flex-wrap:wrap}
+.pill{background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3);color:var(--gold2);font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:2px}
+.pill.new{background:rgba(201,168,76,.3);border-color:var(--gold2)}
+
+/* TABS */
+.tab-bar{background:var(--navy2);display:flex;border-bottom:2px solid var(--gold);position:sticky;top:0;z-index:100}
+.tab-btn{flex:1;padding:15px 20px;background:transparent;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.45);transition:all .2s;border-bottom:3px solid transparent;margin-bottom:-2px}
+.tab-btn:hover{color:var(--gold2);background:rgba(201,168,76,.06)}
+.tab-btn.active{color:var(--gold2);border-bottom-color:var(--gold2);background:rgba(201,168,76,.08)}
+
+/* PANELS */
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+.panel-inner{max-width:1100px;margin:0 auto;padding:40px 32px 80px}
+
+/* SECTION */
+.section-label{display:flex;align-items:center;gap:16px;margin:0 0 24px}
+.section-label-num{width:36px;height:36px;background:var(--navy);color:var(--gold2);font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.section-label-text h2{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:500;color:var(--navy);line-height:1.1}
+.section-label-text p{font-size:13px;color:var(--lgray);margin-top:2px}
+.section-rule{height:1px;background:linear-gradient(to right,var(--gold),transparent);margin-bottom:32px}
+
+/* CATEGORY HEADERS */
+.cat-header{display:flex;align-items:center;gap:12px;margin:40px 0 20px}
+.cat-header:first-child{margin-top:0}
+.cat-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);flex-shrink:0}
+.cat-title{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--navy)}
+.cat-line{flex:1;height:1px;background:var(--border)}
+.cat-count{font-size:11px;color:var(--lgray)}
+
+/* QUESTION CARDS */
+.q-grid{display:flex;flex-direction:column;gap:10px;margin-bottom:48px}
+.q-card{background:var(--white);border:1px solid var(--border);border-left:4px solid var(--gold);border-radius:2px;overflow:hidden;transition:box-shadow .2s}
+.q-card:hover{box-shadow:0 4px 20px rgba(26,47,78,.07)}
+.q-header{display:flex;align-items:flex-start;gap:16px;padding:16px 18px 12px;cursor:pointer;user-select:none}
+.q-num{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;color:var(--gold);line-height:1;min-width:26px;padding-top:2px}
+.q-text{flex:1;font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:500;color:var(--navy);line-height:1.4}
+.q-toggle{width:20px;height:20px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--lgray);font-size:11px;margin-top:3px;transition:all .2s}
+.q-card.open .q-toggle{background:var(--navy);border-color:var(--navy);color:var(--gold2)}
+.q-body{display:none;padding:0 18px 16px 60px}
+.q-card.open .q-body{display:block}
+.coaching-note{background:var(--cream);border-left:3px solid var(--gold2);padding:10px 14px;margin-bottom:12px}
+.coaching-note-label{font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+.coaching-note p{font-size:13px;color:var(--gray);line-height:1.6;font-style:italic}
+.s2-note{background:#e8f5e9;border-left:3px solid var(--green);padding:8px 12px;margin-bottom:12px;font-size:12px;color:var(--green);font-weight:500}
+.q-answer-area{width:100%;min-height:80px;border:1px solid var(--border);border-radius:2px;padding:10px 12px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);background:var(--cream);resize:vertical;outline:none;transition:border-color .2s;margin-top:6px}
+.q-answer-area:focus{border-color:var(--gold2);background:var(--white)}
+.q-answer-area::placeholder{color:var(--lgray);font-style:italic}
+.answer-meta{display:flex;justify-content:space-between;align-items:center;margin-top:5px}
+.answer-meta span{font-size:11px;color:var(--lgray)}
+.clear-btn{font-size:11px;color:var(--lgray);background:none;border:1px solid var(--border);padding:2px 8px;border-radius:2px;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s}
+.clear-btn:hover{color:var(--red);border-color:var(--red)}
+
+/* END BUILDER */
+.end-builder{background:var(--white);border:1px solid var(--border);border-radius:2px;padding:8px 12px;margin-bottom:12px;display:flex;align-items:center;gap:10px}
+.end-label{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);white-space:nowrap}
+.end-input{flex:1;border:none;border-bottom:1px solid var(--border);outline:none;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);padding:4px 0;background:transparent;font-style:italic}
+.end-input::placeholder{color:var(--lgray)}
+
+/* PREP TAB */
+.formula-box{background:var(--navy);padding:24px 28px;margin:0 0 28px;position:relative;overflow:hidden}
+.formula-box::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 30px,rgba(201,168,76,.05) 30px,rgba(201,168,76,.05) 60px)}
+.formula-box-inner{position:relative}
+.formula-eyebrow{font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);margin-bottom:12px}
+.formula-steps{display:flex;align-items:stretch;flex-wrap:wrap}
+.formula-step{display:flex;flex-direction:column;align-items:center;flex:1;min-width:130px;padding:12px 14px;text-align:center;position:relative}
+.formula-step:not(:last-child)::after{content:'→';position:absolute;right:-10px;top:50%;transform:translateY(-50%);color:var(--gold2);font-size:18px;z-index:1}
+.formula-step-num{width:26px;height:26px;border:1px solid var(--gold2);border-radius:50%;color:var(--gold2);font-family:'Cormorant Garamond',serif;font-size:15px;display:flex;align-items:center;justify-content:center;margin-bottom:7px}
+.formula-step-label{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:600;color:var(--white);margin-bottom:3px}
+.formula-step-desc{font-size:11px;color:rgba(255,255,255,.5);line-height:1.4}
+
+/* GPS / End Framework */
+.gps-box{background:var(--navy);padding:24px 28px;margin:0 0 28px;position:relative;overflow:hidden}
+.gps-box::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(201,168,76,.08) 0%,transparent 60%)}
+.gps-box-inner{position:relative}
+.gps-eyebrow{font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);margin-bottom:10px}
+.gps-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:var(--white);margin-bottom:4px}
+.gps-title em{font-style:italic;color:var(--gold2)}
+.gps-sub{font-size:13px;color:rgba(255,255,255,.55);margin-bottom:16px;line-height:1.6}
+.gps-steps{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+@media(max-width:600px){.gps-steps{grid-template-columns:1fr}}
+.gps-step{background:rgba(255,255,255,.06);border:1px solid rgba(201,168,76,.2);padding:14px 16px}
+.gps-step-num{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--gold2);line-height:1;margin-bottom:4px}
+.gps-step-label{font-size:13px;font-weight:600;color:var(--white);margin-bottom:4px}
+.gps-step-desc{font-size:12px;color:rgba(255,255,255,.5);line-height:1.5}
+
+/* Pillars */
+.pillars-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:32px}
+@media(max-width:650px){.pillars-grid{grid-template-columns:1fr}}
+.pillar-card{background:var(--white);border:1px solid var(--border);padding:20px;border-top:3px solid var(--gold)}
+.pillar-num{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--gold);line-height:1;margin-bottom:4px}
+.pillar-name-input{width:100%;border:none;border-bottom:2px solid var(--border);outline:none;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--navy);padding:4px 0;background:transparent;transition:border-color .2s}
+.pillar-name-input:focus{border-bottom-color:var(--gold2)}
+.pillar-desc{font-size:12px;color:var(--lgray);margin:8px 0 10px;font-style:italic}
+.pillar-note{font-size:12px;color:var(--gray);line-height:1.5;background:var(--cream);padding:8px 10px;border-left:2px solid var(--gold2)}
+
+/* Hot topic practice */
+.ht-card{background:var(--white);border:1px solid var(--border);padding:20px 24px;margin-bottom:12px}
+.ht-prompt{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--navy);margin-bottom:12px}
+.ht-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+@media(max-width:650px){.ht-grid{grid-template-columns:1fr}}
+.ht-step-label{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);margin-bottom:5px}
+.ht-step-note{font-size:11px;color:var(--lgray);margin-bottom:6px;font-style:italic}
+
+/* Builder */
+.builder-section{background:var(--white);border:1px solid var(--border);padding:24px 28px;margin-bottom:24px;position:relative}
+.builder-section::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--gold)}
+.builder-title{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;color:var(--navy);margin-bottom:3px}
+.builder-sub{font-size:12px;color:var(--lgray);margin-bottom:16px}
+.builder-template{background:var(--cream);border:1px dashed var(--border);padding:12px 14px;margin-bottom:14px;font-size:13px;color:var(--gray);line-height:1.6;font-style:italic}
+.builder-template strong{color:var(--navy);font-style:normal}
+.builder-label{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);margin-bottom:5px}
+.builder-area{width:100%;min-height:90px;border:1px solid var(--border);border-radius:2px;padding:10px 12px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);background:var(--cream);resize:vertical;outline:none;transition:border-color .2s;line-height:1.6}
+.builder-area:focus{border-color:var(--gold2);background:var(--white)}
+.wc-row{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.wc-wrap{flex:1;height:4px;background:var(--cream2);border-radius:2px;overflow:hidden}
+.wc-bar{height:100%;background:var(--gold);border-radius:2px;transition:width .3s,background .3s;width:0%}
+.wc-bar.over{background:var(--red)}
+.wc-label{font-size:12px;color:var(--lgray);white-space:nowrap;min-width:80px;text-align:right}
+.preview-label{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--lgray);margin-bottom:5px}
+.preview-box{background:var(--cream);border:1px solid var(--gold3);border-left:4px solid var(--gold);padding:14px 18px;min-height:56px;font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--navy);line-height:1.6;font-style:italic}
+
+/* Timer */
+.timer-row{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.timer-display{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:var(--navy);min-width:80px;transition:color .3s}
+.timer-display.warn{color:var(--gold)}
+.timer-display.over{color:var(--red)}
+.timer-btn{padding:7px 16px;border:1px solid var(--navy);background:transparent;color:var(--navy);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:all .2s}
+.timer-btn:hover{background:var(--navy);color:var(--white)}
+.timer-btn.running{background:var(--navy);color:var(--gold2)}
+.timer-note{font-size:12px;color:var(--lgray);font-style:italic}
+
+/* Tips */
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px;margin-bottom:40px}
+.tip-card{background:var(--white);border:1px solid var(--border);padding:18px}
+.tip-icon{font-size:18px;margin-bottom:6px}
+.tip-title{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:var(--navy);margin-bottom:6px}
+.tip-body{font-size:13px;color:var(--gray);line-height:1.6}
+.tip-body strong{color:var(--navy)}
+
+/* Checklist */
+.checklist-box{background:var(--white);border:1px solid var(--border);padding:22px 26px;margin-bottom:32px}
+.checklist{list-style:none;padding:0}
+.checklist li{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid var(--cream2);font-size:14px;line-height:1.5}
+.checklist li:last-child{border-bottom:none}
+.checklist input[type="checkbox"]{width:16px;height:16px;margin-top:2px;accent-color:var(--gold);flex-shrink:0;cursor:pointer}
+
+.page-footer{background:var(--navy);color:rgba(255,255,255,.35);text-align:center;padding:18px;font-size:12px}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-eyebrow">ImpACT Consulting — Session 2 Prep Guide</div>
+    <div class="header-name">Destiny <em>Humphrey</em></div>
+    <div class="header-sub">Miss Aurora · Miss Colorado Preparation · Session 2 · Competition: June 13</div>
+    <div class="header-pills">
+      <span class="pill">Oncology Nurse</span>
+      <span class="pill">Be the Match, Be the Lifeline</span>
+      <span class="pill new">✦ New: Begin With the End</span>
+      <span class="pill new">✦ New: Three Pillars Framework</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tab-bar">
+  <button class="tab-btn active" onclick="showTab('questions',this)">Question Bank</button>
+  <button class="tab-btn" onclick="showTab('prep',this)">Prep Guide & Practice</button>
+</nav>
+
+<!-- ═══════════════════════════════════════ TAB 1 ═══════════════════════════════ -->
+<div id="tab-questions" class="tab-panel active">
+<div class="panel-inner">
+
+  <div class="section-label">
+    <div class="section-label-num">01</div>
+    <div class="section-label-text">
+      <h2>Mock Interview Question Bank — Session 2</h2>
+      <p>All new questions. Use the End Builder in each card to practice "begin with the end in mind" before typing your answer.</p>
+    </div>
+  </div>
+  <div class="section-rule"></div>
+
+  <!-- ── PERSONAL & BACKGROUND ── -->
+  <div class="cat-header">
+    <div class="cat-dot"></div>
+    <div class="cat-title">Personal & Background</div>
+    <div class="cat-line"></div>
+    <div class="cat-count">13 questions</div>
+  </div>
+
+  <div class="q-grid">
+
+    <div class="q-card" id="q-p1">
+      <div class="q-header" onclick="toggleQ('q-p1')">
+        <div class="q-num">1</div>
+        <div class="q-text">You're competing for Miss Colorado just a few months after your very first pageant. What has surprised you most about the process so far?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="s2-note">✦ S2 Framework: State your end before you answer. "My end is ___."</div>
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>Genuine self-awareness and growth mindset. Don't default to "how much I've learned." Be specific about what actually surprised you — about yourself, about the other women, about the process. Surprising honesty earns trust.</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Write your destination before you start..." oninput="saveToStorage('end-q-p1',this.value)" data-key="end-q-p1"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-p1',this.value);updateWC(this,'wc-q-p1')" data-key="q-p1"></textarea>
+        <div class="answer-meta"><span id="wc-q-p1">0 words</span><button class="clear-btn" onclick="clearAnswer('q-p1')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-p2">
+      <div class="q-header" onclick="toggleQ('q-p2')">
+        <div class="q-num">2</div>
+        <div class="q-text">You created a donor circle about a month and a half ago and have already registered roughly 100 people. What did you do in that first month that you'll scale as Miss Colorado?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>Specificity and forward vision. Name what actually worked (nurses joining, park event) and then extrapolate clearly. Judges want to see that you know how to replicate success, not just describe it.</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Write your destination before you start..." oninput="saveToStorage('end-q-p2',this.value)" data-key="end-q-p2"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-p2',this.value);updateWC(this,'wc-q-p2')" data-key="q-p2"></textarea>
+        <div class="answer-meta"><span id="wc-q-p2">0 words</span><button class="clear-btn" onclick="clearAnswer('q-p2')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-p3">
+      <div class="q-header" onclick="toggleQ('q-p3')">
+        <div class="q-num">3</div>
+        <div class="q-text">You're planning to attend Juneteenth and Black arts festivals specifically to reach underrepresented communities for the registry. What do you know about the trust gap that makes that outreach different from a standard blood drive table?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>Demonstrates cultural competency and historical awareness. Know specific barriers (medical mistrust, Tuskegee, HLA complexity). What will you do differently at these events — not just what you'll show up to do? Show you've thought about the why behind the strategy.</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Write your destination before you start..." oninput="saveToStorage('end-q-p3',this.value)" data-key="end-q-p3"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-p3',this.value);updateWC(this,'wc-q-p3')" data-key="q-p3"></textarea>
+        <div class="answer-meta"><span id="wc-q-p3">0 words</span><button class="clear-btn" onclick="clearAnswer('q-p3')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-p4">
+      <div class="q-header" onclick="toggleQ('q-p4')">
+        <div class="q-num">4</div>
+        <div class="q-text">Before nursing school, you thought you'd go into labor and delivery. What does the gap between who you thought you'd be and who you became tell us about how you make decisions?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>Values and self-knowledge question. The most interesting part of this is what made you change — not just that you changed. What is it about you that follows the pull of what's actually needed versus what was planned? Connect it forward: this is the same instinct driving your platform.</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Write your destination before you start..." oninput="saveToStorage('end-q-p4',this.value)" data-key="end-q-p4"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-p4',this.value);updateWC(this,'wc-q-p4')" data-key="q-p4"></textarea>
+        <div class="answer-meta"><span id="wc-q-p4">0 words</span><button class="clear-btn" onclick="clearAnswer('q-p4')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-p5">
+      <div class="q-header" onclick="toggleQ('q-p5')">
+        <div class="q-num">5</div>
+        <div class="q-text">You've said part of why you're competing for Miss Colorado is "for your patients." What would it mean to them specifically — not symbolically — to see you crowned?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>This question lives right at the heart of your WHY. Don't answer in the abstract — answer in the specific. What changes for actual patients? More registry matches? Better awareness? More people who look like them seeing representation? Use a real patient if you can.</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Write your destination before you start..." oninput="saveToStorage('end-q-p5',this.value)" data-key="end-q-p5"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-p5',this.value);updateWC(this,'wc-q-p5')" data-key="q-p5"></textarea>
+        <div class="answer-meta"><span id="wc-q-p5">0 words</span><button class="clear-btn" onclick="clearAnswer('q-p5')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-p6">
+      <div class="q-header" onclick="toggleQ('q-p6')">
+        <div class="q-num">6</div>
+        <div class="q-text">Your bucket list includes an international medical mission. Where would you go, what role would you fill, and how does it connect to the work you're already doing?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>Global perspective + oncology expertise. Be specific about a region or context — vague "somewhere in Africa" reads as uninformed. Have you researched organizations like Doctors Without Borders, Project CURE, or cancer-focused missions? Show you've thought about this, not just listed it.</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Write your destination before you start..." oninput="saveToStorage('end-q-p6',this.value)" data-key="end-q-p6"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-p6',this.value);updateWC(this,'wc-q-p6')" data-key="q-p6"></textarea>
+        <div class="answer-meta"><span id="wc-q-p6">0 words</span><button class="clear-btn" onclick="clearAnswer('q-p6')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-p7">
+      <div class="q-header" onclick="toggleQ('q-p7')">
+        <div class="q-num">7</div>
+        <div class="q-text">You've lost a friend to suicide. How has that loss shaped the way you show up for the people around you — your patients, your colleagues, your community?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>This is a sensitive, high-trust question. Answer with care and honesty — not as a rehearsed platform statement. What did that loss change in how you pay attention? How it shows up in your nursing practice? The best answer honors the person and shows it changed something real in you.</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Write your destination before you start..." oninput="saveToStorage('end-q-p7',this.value)" data-key="end-q-p7"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-p7',this.value);updateWC(this,'wc-q-p7')" data-key="q-p7"></textarea>
+        <div class="answer-meta"><span id="wc-q-p7">0 words</span><button class="clear-btn" onclick="clearAnswer('q-p7')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-p8">
+      <div class="q-header" onclick="toggleQ('q-p8')">
+        <div class="q-num">8</div>
+        <div class="q-text">You attended orientation where they gave you mock interview feedback. You were told you didn't smile. What did you do with that feedback?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>Resilience and coachability question. This is a great opportunity to show you receive and act on feedback without being defensive. What specifically did you do differently? This answer also gives judges a real moment of self-awareness that's disarming and appealing.</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Write your destination before you start..." oninput="saveToStorage('end-q-p8',this.value)" data-key="end-q-p8"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-p8',this.value);updateWC(this,'wc-q-p8')" data-key="q-p8"></textarea>
+        <div class="answer-meta"><span id="wc-q-p8">0 words</span><button class="clear-btn" onclick="clearAnswer('q-p8')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-p9">
+      <div class="q-header" onclick="toggleQ('q-p9')">
+        <div class="q-num">9</div>
+        <div class="q-text">Tell us about your patient who cried every time she received blood products. What did she say, and what did you do with that moment?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>This is a powerful story you referenced in Session 2 — use it in full. Let the detail breathe. What she said, what it felt like to hear it, and what you decided in that moment. This story has the power to carry an entire interview if you let it.</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Write your destination before you start..." oninput="saveToStorage('end-q-p9',this.value)" data-key="end-q-p9"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-p9',this.value);updateWC(this,'wc-q-p9')" data-key="q-p9"></textarea>
+        <div class="answer-meta"><span id="wc-q-p9">0 words</span><button class="clear-btn" onclick="clearAnswer('q-p9')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-p10">
+      <div class="q-header" onclick="toggleQ('q-p10')">
+        <div class="q-num">10</div>
+        <div class="q-text">You're learning to sew port-accessible shirts for patients, and you want to eventually expand access for patients everywhere. How does that project reflect your approach to problem-solving?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>Practical innovation + patient-centered thinking. This is also a wonderful Shark Tank–style story — you saw a problem your patients had, you decided to solve it yourself. What is the problem exactly? What have you made so far? What does "expanding access" look like?</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Write your destination before you start..." oninput="saveToStorage('end-q-p10',this.value)" data-key="end-q-p10"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-p10',this.value);updateWC(this,'wc-q-p10')" data-key="q-p10"></textarea>
+        <div class="answer-meta"><span id="wc-q-p10">0 words</span><button class="clear-btn" onclick="clearAnswer('q-p10')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-p11">
+      <div class="q-header" onclick="toggleQ('q-p11')">
+        <div class="q-num">11</div>
+        <div class="q-text">Blood Cancer United is your dream partnership. What specifically would you bring to that relationship that they don't already have?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>Know Blood Cancer United's current programs, gaps, and goals. This is not just "I'd show up to their gala." What clinical credibility do you bring? What community access? What content creation capability? Think like a partner, not an applicant.</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Write your destination before you start..." oninput="saveToStorage('end-q-p11',this.value)" data-key="end-q-p11"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-p11',this.value);updateWC(this,'wc-q-p11')" data-key="q-p11"></textarea>
+        <div class="answer-meta"><span id="wc-q-p11">0 words</span><button class="clear-btn" onclick="clearAnswer('q-p11')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-p12">
+      <div class="q-header" onclick="toggleQ('q-p12')">
+        <div class="q-num">12</div>
+        <div class="q-text">You wore your crown and sash to a registry swab event at the park and immediately noticed more people approaching. What does that observation tell you about how this title works as a tool?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>Titleholder purpose and platform leverage. This is a great real-world example of how the crown amplifies work — you don't just have it, you've already tested it. Build on the observation: what does that trust signal mean for your CSI strategy, and how will you use it intentionally?</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Write your destination before you start..." oninput="saveToStorage('end-q-p12',this.value)" data-key="end-q-p12"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-p12',this.value);updateWC(this,'wc-q-p12')" data-key="q-p12"></textarea>
+        <div class="answer-meta"><span id="wc-q-p12">0 words</span><button class="clear-btn" onclick="clearAnswer('q-p12')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-p13">
+      <div class="q-header" onclick="toggleQ('q-p13')">
+        <div class="q-num">13</div>
+        <div class="q-text">You describe yourself as someone who, when she wants to do something, just goes and does it. Give us an example outside of the whale shark trip that shows that instinct in your professional life.</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>Agency and self-directedness as a character trait, not just a travel anecdote. Think of a moment in nursing, advocacy, or competition where you made something happen by deciding to act. The Cycle Bar event, the first blood drive, the donor circle — any of these work.</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Write your destination before you start..." oninput="saveToStorage('end-q-p13',this.value)" data-key="end-q-p13"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-p13',this.value);updateWC(this,'wc-q-p13')" data-key="q-p13"></textarea>
+        <div class="answer-meta"><span id="wc-q-p13">0 words</span><button class="clear-btn" onclick="clearAnswer('q-p13')">Clear</button></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── CURRENT EVENTS & HOT TOPICS ── -->
+  <div class="cat-header">
+    <div class="cat-dot"></div>
+    <div class="cat-title">Current Events & Hot Topics</div>
+    <div class="cat-line"></div>
+    <div class="cat-count">12 questions</div>
+  </div>
+
+  <div class="q-grid">
+
+    <div class="q-card" id="q-c1">
+      <div class="q-header" onclick="toggleQ('q-c1')">
+        <div class="q-num">1</div>
+        <div class="q-text">HOT TOPIC — Immigration. How do you connect this issue to your work and your values?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="s2-note">✦ Identify your pillar anchor before answering. State your end first.</div>
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>Connect via oncology nurse pillar: immigrant patients and undocumented populations have significant healthcare access barriers. You see this on your floor. Anchor to access + advocacy. Three sentences: connect → story → what you stand for. Don't debate policy; speak from what you witness.</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Pick your pillar anchor, then write your destination..." oninput="saveToStorage('end-q-c1',this.value)" data-key="end-q-c1"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-c1',this.value);updateWC(this,'wc-q-c1')" data-key="q-c1"></textarea>
+        <div class="answer-meta"><span id="wc-q-c1">0 words</span><button class="clear-btn" onclick="clearAnswer('q-c1')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-c2">
+      <div class="q-header" onclick="toggleQ('q-c2')">
+        <div class="q-num">2</div>
+        <div class="q-text">HOT TOPIC — Gun violence. What is your perspective, and how do you speak about it as a public figure?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="s2-note">✦ This is a pillar anchor question. Pick one. Don't try to cover everything.</div>
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>Oncology nurse: trauma, emergency response, mental health co-occurrence. Athlete: team sport culture, community. Pick the angle that feels truest to you. You're allowed to have a position — support it clearly, connect to something you've witnessed, close on what you believe or what you're doing. Don't dodge.</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Pick your pillar anchor, then write your destination..." oninput="saveToStorage('end-q-c2',this.value)" data-key="end-q-c2"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-c2',this.value);updateWC(this,'wc-q-c2')" data-key="q-c2"></textarea>
+        <div class="answer-meta"><span id="wc-q-c2">0 words</span><button class="clear-btn" onclick="clearAnswer('q-c2')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-c3">
+      <div class="q-header" onclick="toggleQ('q-c3')">
+        <div class="q-num">3</div>
+        <div class="q-text">HOT TOPIC — Artificial intelligence. Where do you see its biggest impact — positive or negative — in the next five years?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>In Session 2 you practiced this briefly. You connected technology to stem cell registry logistics and your 3,000-donor goal. Keep building on that — AI in healthcare diagnostics, AI in registry matching (HLA typing), AI in patient communication. Pick one concrete application, not a general opinion.</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Pick your pillar anchor, then write your destination..." oninput="saveToStorage('end-q-c3',this.value)" data-key="end-q-c3"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-c3',this.value);updateWC(this,'wc-q-c3')" data-key="q-c3"></textarea>
+        <div class="answer-meta"><span id="wc-q-c3">0 words</span><button class="clear-btn" onclick="clearAnswer('q-c3')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-c4">
+      <div class="q-header" onclick="toggleQ('q-c4')">
+        <div class="q-num">4</div>
+        <div class="q-text">HOT TOPIC — Misinformation. You practiced this in Session 2. Can you deliver the polished, competition-ready version now?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="s2-note">✦ You nailed this in practice. Repeat it until it's automatic. Target: 30–40 seconds.</div>
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>Your Session 2 answer: "Misinformation can be very harmful — I see it in patients looking up their diagnoses and finding inaccurate information about their treatment." Close: "That's why I advocate for accurate medical information." Deliver this version cleanly, with a smile, in under 45 seconds. That's the whole answer.</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="You already know this one..." oninput="saveToStorage('end-q-c4',this.value)" data-key="end-q-c4"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-c4',this.value);updateWC(this,'wc-q-c4')" data-key="q-c4"></textarea>
+        <div class="answer-meta"><span id="wc-q-c4">0 words</span><button class="clear-btn" onclick="clearAnswer('q-c4')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-c5">
+      <div class="q-header" onclick="toggleQ('q-c5')">
+        <div class="q-num">5</div>
+        <div class="q-text">HOT TOPIC — Climate change. What connection, if any, do you draw between environmental shifts and the health issues you care most about?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>This might feel like a stretch from oncology — but air quality, heat exposure, and wildfire smoke have documented connections to blood disorders and cancer risk. If that feels too technical, anchor via athlete pillar: outdoor sports, training environments, community health. Pick a lane and own it in 3 sentences.</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Pick your pillar anchor, then write your destination..." oninput="saveToStorage('end-q-c5',this.value)" data-key="end-q-c5"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-c5',this.value);updateWC(this,'wc-q-c5')" data-key="q-c5"></textarea>
+        <div class="answer-meta"><span id="wc-q-c5">0 words</span><button class="clear-btn" onclick="clearAnswer('q-c5')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-c6">
+      <div class="q-header" onclick="toggleQ('q-c6')">
+        <div class="q-num">6</div>
+        <div class="q-text">HOT TOPIC — Income inequality. What do you believe, and how does it connect to the work you do every day?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>Oncology nurse anchor: healthcare access is directly tied to income. The 100-day caretaker requirement story (from your HERStory) is literally a story about economic inequality blocking lifesaving care. You don't have to use that story — but the connection is right there. Speak from your floor.</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Pick your pillar anchor, then write your destination..." oninput="saveToStorage('end-q-c6',this.value)" data-key="end-q-c6"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-c6',this.value);updateWC(this,'wc-q-c6')" data-key="q-c6"></textarea>
+        <div class="answer-meta"><span id="wc-q-c6">0 words</span><button class="clear-btn" onclick="clearAnswer('q-c6')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-c7">
+      <div class="q-header" onclick="toggleQ('q-c7')">
+        <div class="q-num">7</div>
+        <div class="q-text">HOT TOPIC — Education reform. What change would you make to public education if you had the power to make one?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>Scholarship pillar anchor. You want to be the professor you never had — that's an education reform perspective. What is the one thing you'd change? Health literacy as a required subject? Mental health education? Sex-ed reform? Pick something you can defend with conviction.</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Scholarship pillar. Write your destination..." oninput="saveToStorage('end-q-c7',this.value)" data-key="end-q-c7"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-c7',this.value);updateWC(this,'wc-q-c7')" data-key="q-c7"></textarea>
+        <div class="answer-meta"><span id="wc-q-c7">0 words</span><button class="clear-btn" onclick="clearAnswer('q-c7')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-c8">
+      <div class="q-header" onclick="toggleQ('q-c8')">
+        <div class="q-num">8</div>
+        <div class="q-text">HOT TOPIC — Women in leadership. What has your experience taught you about what still needs to change?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>This one is yours to own — you are a woman in a clinical leadership role, a board member of a nonprofit, and a pageant competitor. Each of those worlds has its own version of this issue. Pick the most specific example. Avoid generalizations — give the panel one real moment.</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Pick your pillar anchor, then write your destination..." oninput="saveToStorage('end-q-c8',this.value)" data-key="end-q-c8"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-c8',this.value);updateWC(this,'wc-q-c8')" data-key="q-c8"></textarea>
+        <div class="answer-meta"><span id="wc-q-c8">0 words</span><button class="clear-btn" onclick="clearAnswer('q-c8')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-c9">
+      <div class="q-header" onclick="toggleQ('q-c9')">
+        <div class="q-num">9</div>
+        <div class="q-text">The FDA recently updated eligibility guidelines for blood donation, lifting some long-standing restrictions on who can donate. What's your perspective on how those changes affect your CSI work?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>Know the specific updates (MSM policy changes, IV drug use deferrals, etc.). Your answer should show clinical awareness AND platform relevance — expanded eligibility expands your donor pool. What does that mean for blood drives and registry events you run?</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Write your destination before you start..." oninput="saveToStorage('end-q-c9',this.value)" data-key="end-q-c9"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-c9',this.value);updateWC(this,'wc-q-c9')" data-key="q-c9"></textarea>
+        <div class="answer-meta"><span id="wc-q-c9">0 words</span><button class="clear-btn" onclick="clearAnswer('q-c9')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-c10">
+      <div class="q-header" onclick="toggleQ('q-c10')">
+        <div class="q-num">10</div>
+        <div class="q-text">HOT TOPIC — Social media and mental health. You've spoken about losing a friend to suicide and about mental health as your social issue beyond your CSI. What do you actually believe should be done?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>This is a deeply personal question, and the judges will feel that. Don't let it stay abstract — your answer in Session 2 ("five years ago I lost a friend to suicide") was one of the most powerful moments of the practice session. That story IS the answer. Let it be.</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="You know where this one goes. Write it." oninput="saveToStorage('end-q-c10',this.value)" data-key="end-q-c10"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-c10',this.value);updateWC(this,'wc-q-c10')" data-key="q-c10"></textarea>
+        <div class="answer-meta"><span id="wc-q-c10">0 words</span><button class="clear-btn" onclick="clearAnswer('q-c10')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-c11">
+      <div class="q-header" onclick="toggleQ('q-c11')">
+        <div class="q-num">11</div>
+        <div class="q-text">HOT TOPIC — Racial equity in healthcare. What is the most important thing the medical community is still getting wrong?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>You have real standing here — you're a Black oncology nurse who works in a system that consistently underserves patients who look like you and your dad. Speak from what you've observed. Name something specific: diagnostic bias, pain management disparities, representation in clinical trials. Be clear and be brave.</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Write your destination before you start..." oninput="saveToStorage('end-q-c11',this.value)" data-key="end-q-c11"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-c11',this.value);updateWC(this,'wc-q-c11')" data-key="q-c11"></textarea>
+        <div class="answer-meta"><span id="wc-q-c11">0 words</span><button class="clear-btn" onclick="clearAnswer('q-c11')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-c12">
+      <div class="q-header" onclick="toggleQ('q-c12')">
+        <div class="q-num">12</div>
+        <div class="q-text">HOT TOPIC — Housing and homelessness in Colorado. How does this issue intersect with the healthcare work you do?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>Aurora and Denver are both significantly affected by housing instability. You may have patients whose recovery was complicated by housing insecurity. The caretaker access story (your HERStory) is a housing story as much as a healthcare story. Connect the dots.</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Pick your pillar anchor, then write your destination..." oninput="saveToStorage('end-q-c12',this.value)" data-key="end-q-c12"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-c12',this.value);updateWC(this,'wc-q-c12')" data-key="q-c12"></textarea>
+        <div class="answer-meta"><span id="wc-q-c12">0 words</span><button class="clear-btn" onclick="clearAnswer('q-c12')">Clear</button></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── ROLE & BEHAVIORAL ── -->
+  <div class="cat-header">
+    <div class="cat-dot"></div>
+    <div class="cat-title">Role, Behavioral & The 5 Pillars</div>
+    <div class="cat-line"></div>
+    <div class="cat-count">12 questions</div>
+  </div>
+
+  <div class="q-grid">
+
+    <div class="q-card" id="q-r1">
+      <div class="q-header" onclick="toggleQ('q-r1')">
+        <div class="q-num">1</div>
+        <div class="q-text">You said part of being a nurse is "meeting every patient where they are." How does that exact skill apply to the job of Miss Colorado when the person in front of you isn't a patient at all?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>Session 2 feedback: this is already your best answer to the brand ambassador question — just lead with it. Now practice naming specific types of Miss Colorado encounters (rural fair, corporate sponsor event, elementary school classroom) and show how the same instinct adapts.</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Write your destination before you start..." oninput="saveToStorage('end-q-r1',this.value)" data-key="end-q-r1"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-r1',this.value);updateWC(this,'wc-q-r1')" data-key="q-r1"></textarea>
+        <div class="answer-meta"><span id="wc-q-r1">0 words</span><button class="clear-btn" onclick="clearAnswer('q-r1')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-r2">
+      <div class="q-header" onclick="toggleQ('q-r2')">
+        <div class="q-num">2</div>
+        <div class="q-text">PILLAR: SERVICE — You said even one transplant coming out of your platform would be "amazing." How do you sustain urgency when results take years and the wins are invisible to the public?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>This is a question about the internal life of an advocate. What actually keeps you going? Your patients, the printout showing who received your blood, the girl who cried — those are the answers. Don't give the aspirational version. Give the honest one.</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Write your destination before you start..." oninput="saveToStorage('end-q-r2',this.value)" data-key="end-q-r2"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-r2',this.value);updateWC(this,'wc-q-r2')" data-key="q-r2"></textarea>
+        <div class="answer-meta"><span id="wc-q-r2">0 words</span><button class="clear-btn" onclick="clearAnswer('q-r2')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-r3">
+      <div class="q-header" onclick="toggleQ('q-r3')">
+        <div class="q-num">3</div>
+        <div class="q-text">PILLAR: SCHOLARSHIP — You want to be the professor you never had. What does that look like in a classroom on a Tuesday afternoon when nursing education is hard and a student is struggling?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>Put yourself in the room. What specifically would you do differently from the professors who made you feel unseen? The more concrete the picture, the more believable the aspiration. Paint one scene, not a philosophy.</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Write your destination before you start..." oninput="saveToStorage('end-q-r3',this.value)" data-key="end-q-r3"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-r3',this.value);updateWC(this,'wc-q-r3')" data-key="q-r3"></textarea>
+        <div class="answer-meta"><span id="wc-q-r3">0 words</span><button class="clear-btn" onclick="clearAnswer('q-r3')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-r4">
+      <div class="q-header" onclick="toggleQ('q-r4')">
+        <div class="q-num">4</div>
+        <div class="q-text">PILLAR: SISTERHOOD — At orientation, girls you'd never met showed up for your Cycle Bar event. One helped blow up the balloon arch. What does that kind of sisterhood ask of you in return?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>Sisterhood as a reciprocal practice, not just a beautiful feeling. What have you done for a competitor or fellow titleholder that cost you something — time, vulnerability, support when you were also competing? The answer shows whether you actually live this value.</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Write your destination before you start..." oninput="saveToStorage('end-q-r4',this.value)" data-key="end-q-r4"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-r4',this.value);updateWC(this,'wc-q-r4')" data-key="q-r4"></textarea>
+        <div class="answer-meta"><span id="wc-q-r4">0 words</span><button class="clear-btn" onclick="clearAnswer('q-r4')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-r5">
+      <div class="q-header" onclick="toggleQ('q-r5')">
+        <div class="q-num">5</div>
+        <div class="q-text">PILLAR: STYLE — Your style at work is expressed through accessories, matching your patients' favorite colors, and personal touches in navy scrubs. How does your personal aesthetic translate to a national stage?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>The Scrubs-to-Stage question. Your style identity is rooted in personal connection — you wear pink because a patient loves pink. That's a brand, not just a fashion choice. How does that translate when the stage is national? What is constant across all your contexts?</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Write your destination before you start..." oninput="saveToStorage('end-q-r5',this.value)" data-key="end-q-r5"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-r5',this.value);updateWC(this,'wc-q-r5')" data-key="q-r5"></textarea>
+        <div class="answer-meta"><span id="wc-q-r5">0 words</span><button class="clear-btn" onclick="clearAnswer('q-r5')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-r6">
+      <div class="q-header" onclick="toggleQ('q-r6')">
+        <div class="q-num">6</div>
+        <div class="q-text">You're representing Best Buddies International at a national event for Miss America. What do you know about their mission, and how do you connect it to your own values?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>Know Best Buddies: inclusion for people with intellectual and developmental disabilities, one-to-one friendships, employment programs. Connect it to your nursing worldview — every patient deserves to be seen, including those who are often overlooked. The connection is real.</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Write your destination before you start..." oninput="saveToStorage('end-q-r6',this.value)" data-key="end-q-r6"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-r6',this.value);updateWC(this,'wc-q-r6')" data-key="q-r6"></textarea>
+        <div class="answer-meta"><span id="wc-q-r6">0 words</span><button class="clear-btn" onclick="clearAnswer('q-r6')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-r7">
+      <div class="q-header" onclick="toggleQ('q-r7')">
+        <div class="q-num">7</div>
+        <div class="q-text">You're doing a USO appearance at a military base and asked to speak about your platform to veterans. What connections do you draw between military service and your mission?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>Veterans are significant recipients of blood transfusions and face high rates of blood disorders. Veterans also represent a diverse donor pool with national reach. Research the connection. Also: service culture — the instinct to show up for others — is shared territory between nursing and military service. Use that.</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Write your destination before you start..." oninput="saveToStorage('end-q-r7',this.value)" data-key="end-q-r7"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-r7',this.value);updateWC(this,'wc-q-r7')" data-key="q-r7"></textarea>
+        <div class="answer-meta"><span id="wc-q-r7">0 words</span><button class="clear-btn" onclick="clearAnswer('q-r7')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-r8">
+      <div class="q-header" onclick="toggleQ('q-r8')">
+        <div class="q-num">8</div>
+        <div class="q-text">You're on stage for a hot topic question and you genuinely don't know enough about the specific issue to give a detailed answer. What do you do?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>This is literally what Sierra coached you to handle in Session 2. The Three Pillars exist for this scenario. Answer: acknowledge the issue, connect to the pillar you know most, tell your story, close with what you stand for. You don't have to be an expert — you have to be honest and grounded.</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Write your destination before you start..." oninput="saveToStorage('end-q-r8',this.value)" data-key="end-q-r8"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-r8',this.value);updateWC(this,'wc-q-r8')" data-key="q-r8"></textarea>
+        <div class="answer-meta"><span id="wc-q-r8">0 words</span><button class="clear-btn" onclick="clearAnswer('q-r8')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-r9">
+      <div class="q-header" onclick="toggleQ('q-r9')">
+        <div class="q-num">9</div>
+        <div class="q-text">You're at a public appearance and someone approaches you with very strong negative opinions about a topic you care about. How do you respond without abandoning your values or alienating the person?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>Composure and meeting people where they are. Your nursing instinct is exactly right here — you don't argue with a patient who's scared, you listen and find common ground. The answer should show that you can hold your values while still being genuinely curious about the other person's perspective.</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Write your destination before you start..." oninput="saveToStorage('end-q-r9',this.value)" data-key="end-q-r9"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-r9',this.value);updateWC(this,'wc-q-r9')" data-key="q-r9"></textarea>
+        <div class="answer-meta"><span id="wc-q-r9">0 words</span><button class="clear-btn" onclick="clearAnswer('q-r9')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-r10">
+      <div class="q-header" onclick="toggleQ('q-r10')">
+        <div class="q-num">10</div>
+        <div class="q-text">Finals night is June 13th. If you walk off that stage as Miss Colorado, what is the first thing you will do the next morning to begin your reign?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>Specificity and urgency signal that you've thought past the crown. Don't say "wake up and start working." Name something real — contacting Blood Cancer United, scheduling the first registry event, reaching out to Presbyterian/St. Luke's. This answer says you want the job and you know what to do with it.</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Write your destination before you start..." oninput="saveToStorage('end-q-r10',this.value)" data-key="end-q-r10"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-r10',this.value);updateWC(this,'wc-q-r10')" data-key="q-r10"></textarea>
+        <div class="answer-meta"><span id="wc-q-r10">0 words</span><button class="clear-btn" onclick="clearAnswer('q-r10')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-r11">
+      <div class="q-header" onclick="toggleQ('q-r11')">
+        <div class="q-num">11</div>
+        <div class="q-text">You work with patients who are dying. What has being present in those moments taught you about how to show up in a room full of strangers on a competition stage?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>Deep character question. The stakes of pageantry versus the stakes of end-of-life nursing — the comparison is profound and disarming. Let this one breathe. What does presence actually mean to you? And how does the practice of showing up for a patient in their hardest moment make a competition stage feel manageable?</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Write your destination before you start..." oninput="saveToStorage('end-q-r11',this.value)" data-key="end-q-r11"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-r11',this.value);updateWC(this,'wc-q-r11')" data-key="q-r11"></textarea>
+        <div class="answer-meta"><span id="wc-q-r11">0 words</span><button class="clear-btn" onclick="clearAnswer('q-r11')">Clear</button></div>
+      </div>
+    </div>
+
+    <div class="q-card" id="q-r12">
+      <div class="q-header" onclick="toggleQ('q-r12')">
+        <div class="q-num">12</div>
+        <div class="q-text">If you don't win on June 13th, what happens to "Be the Match, Be the Lifeline" on June 14th?</div>
+        <div class="q-toggle">▾</div>
+      </div>
+      <div class="q-body">
+        <div class="coaching-note"><div class="coaching-note-label">Coach's Note</div><p>This question separates candidates who need the crown from advocates who own their mission. Your answer should make it clear that this work doesn't live inside the title — it lives inside you. The crown accelerates it. But with or without it, you're going to change that statistic. Mean it.</p></div>
+        <div class="end-builder"><span class="end-label">My end is →</span><input class="end-input" placeholder="Write your destination before you start..." oninput="saveToStorage('end-q-r12',this.value)" data-key="end-q-r12"></div>
+        <textarea class="q-answer-area" placeholder="Practice your answer here..." oninput="saveAnswer('q-r12',this.value);updateWC(this,'wc-q-r12')" data-key="q-r12"></textarea>
+        <div class="answer-meta"><span id="wc-q-r12">0 words</span><button class="clear-btn" onclick="clearAnswer('q-r12')">Clear</button></div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+</div><!-- end tab-questions -->
+
+<!-- ═══════════════════════════════════════ TAB 2 ═══════════════════════════════ -->
+<div id="tab-prep" class="tab-panel">
+<div class="panel-inner">
+
+  <div class="section-label">
+    <div class="section-label-num">02</div>
+    <div class="section-label-text">
+      <h2>Prep Guide & Practice — Session 2</h2>
+      <p>Two new frameworks from Session 2, plus updated intro/closer builders and the full action checklist.</p>
+    </div>
+  </div>
+  <div class="section-rule"></div>
+
+  <!-- FRAMEWORK 1: Answer Formula -->
+  <div class="cat-header" style="margin-top:0">
+    <div class="cat-dot"></div>
+    <div class="cat-title">The Answer Formula</div>
+    <div class="cat-line"></div>
+  </div>
+  <div class="formula-box" style="margin-bottom:8px">
+    <div class="formula-box-inner">
+      <div class="formula-eyebrow">Session 1 Core Framework — Still in Effect</div>
+      <div class="formula-steps">
+        <div class="formula-step">
+          <div class="formula-step-num">1</div>
+          <div class="formula-step-label">Answer</div>
+          <div class="formula-step-desc">Lead with your direct position. Don't build to it.</div>
+        </div>
+        <div class="formula-step">
+          <div class="formula-step-num">2</div>
+          <div class="formula-step-label">Story</div>
+          <div class="formula-step-desc">One specific, real, personal example.</div>
+        </div>
+        <div class="formula-step">
+          <div class="formula-step-num">3</div>
+          <div class="formula-step-label">Restate</div>
+          <div class="formula-step-desc">Close with the point — only if the answer was long.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="background:var(--cream2);border:1px solid var(--border);padding:12px 18px;margin-bottom:40px;font-size:13px;color:var(--gray);line-height:1.7;">
+    <strong style="color:var(--navy);">Session 2 refinement:</strong> If your answer was clear and under 45 seconds, <em>don't restate</em>. Trust it and stop. The restate is a recovery tool, not a requirement.
+  </div>
+
+  <!-- FRAMEWORK 2: Begin With the End -->
+  <div class="cat-header">
+    <div class="cat-dot"></div>
+    <div class="cat-title">New — Begin With the End in Mind</div>
+    <div class="cat-line"></div>
+    <div class="cat-count">Session 2 Framework</div>
+  </div>
+  <div class="gps-box" style="margin-bottom:28px">
+    <div class="gps-box-inner">
+      <div class="gps-eyebrow">Sierra's Session 2 Framework</div>
+      <div class="gps-title">Decide your <em>destination</em> before you start driving.</div>
+      <div class="gps-sub">When a question is asked, you have a breath — maybe two. Use that time to answer one question internally: <strong style="color:var(--gold2)">Where do I want this answer to end?</strong> Once you know, speak toward it. You'll find your answers get shorter, cleaner, and more compelling — because you're not wandering toward a point, you're heading for one you've already chosen.</div>
+      <div class="gps-steps">
+        <div class="gps-step">
+          <div class="gps-step-num">1</div>
+          <div class="gps-step-label">Take the breath</div>
+          <div class="gps-step-desc">Don't speak yet. A pause reads as composure, not hesitation.</div>
+        </div>
+        <div class="gps-step">
+          <div class="gps-step-num">2</div>
+          <div class="gps-step-label">Set the destination</div>
+          <div class="gps-step-desc">"My end is ___." Say it out loud in practice. Do it internally in competition.</div>
+        </div>
+        <div class="gps-step">
+          <div class="gps-step-num">3</div>
+          <div class="gps-step-label">Drive toward it</div>
+          <div class="gps-step-desc">Answer, story, land at the destination. Stop when you arrive.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FRAMEWORK 3: Three Pillars -->
+  <div class="cat-header">
+    <div class="cat-dot"></div>
+    <div class="cat-title">New — Three Personal Pillars (Hot Topic Strategy)</div>
+    <div class="cat-line"></div>
+    <div class="cat-count">Session 2 Framework</div>
+  </div>
+  <p style="font-size:14px;color:var(--gray);line-height:1.7;margin-bottom:20px;">Every hot topic question is an open prompt — no specific answer required. Your job is to find the path from the topic to something you <em>know</em>. These three pillars are your map. Confirm or revise Sierra's suggestions below — these need to feel completely yours.</p>
+
+  <div class="pillars-grid">
+    <div class="pillar-card">
+      <div class="pillar-num">01</div>
+      <input class="pillar-name-input" value="Oncology Nurse" placeholder="Pillar 1 name..." oninput="saveToStorage('pillar-1',this.value)" data-key="pillar-1">
+      <div class="pillar-desc">Sierra's suggestion — confirm or change it</div>
+      <div class="pillar-note">Clinical credibility. Patient stories. Healthcare access. What you witness on your floor every shift.</div>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-num">02</div>
+      <input class="pillar-name-input" value="Athlete" placeholder="Pillar 2 name..." oninput="saveToStorage('pillar-2',this.value)" data-key="pillar-2">
+      <div class="pillar-desc">Sierra's suggestion — confirm or change it</div>
+      <div class="pillar-note">Teamwork, resilience, leadership, physical wellness. Community and competition as parallel paths.</div>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-num">03</div>
+      <input class="pillar-name-input" value="Scholarship & Education" placeholder="Pillar 3 name..." oninput="saveToStorage('pillar-3',this.value)" data-key="pillar-3">
+      <div class="pillar-desc">Sierra's suggestion — confirm or change it</div>
+      <div class="pillar-note">The professor you never had. Teaching as advocacy. Access to education as access to power.</div>
+    </div>
+  </div>
+
+  <div style="background:var(--navy);padding:20px 24px;margin-bottom:8px;position:relative;overflow:hidden">
+    <div style="position:absolute;inset:0;background:repeating-linear-gradient(-45deg,transparent,transparent 30px,rgba(201,168,76,.04) 30px,rgba(201,168,76,.04) 60px)"></div>
+    <div style="position:relative">
+      <div style="font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold2);margin-bottom:8px">Hot Topic Formula — Three Sentences</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px">
+        <div style="color:rgba(255,255,255,.7);font-size:13px;line-height:1.6"><strong style="color:var(--gold2)">Sentence 1</strong><br>Connect the topic to your pillar anchor. How does [hot topic] show up in [your world]?</div>
+        <div style="color:rgba(255,255,255,.7);font-size:13px;line-height:1.6"><strong style="color:var(--gold2)">Sentence 2</strong><br>Tell the one-sentence story. A patient, a moment, a specific observation.</div>
+        <div style="color:rgba(255,255,255,.7);font-size:13px;line-height:1.6"><strong style="color:var(--gold2)">Sentence 3</strong><br>Close with what you're doing about it or what you believe. Land at your destination.</div>
+      </div>
+    </div>
+  </div>
+  <div style="background:var(--cream2);border:1px solid var(--border);padding:12px 18px;margin-bottom:40px;font-size:13px;color:var(--gray);line-height:1.7;">
+    <strong style="color:var(--navy);">In Session 2 you nailed this twice:</strong> Misinformation → oncology nurse → patients looking up inaccurate diagnoses → "that's why I advocate for accurate medical information." Mental health → personal loss → five years ago a friend died by suicide → "more support could save more lives." Both were under 45 seconds. That is the whole framework in action.
+  </div>
+
+  <!-- Hot Topic Practice Area -->
+  <div class="cat-header">
+    <div class="cat-dot"></div>
+    <div class="cat-title">Hot Topic Practice</div>
+    <div class="cat-line"></div>
+  </div>
+  <p style="font-size:13px;color:var(--gray);margin-bottom:20px;">For each prompt: pick your pillar, write your end destination, then draft your three sentences.</p>
+
+  <div class="ht-card">
+    <div class="ht-prompt">Prompt: "The role of social media in today's political climate."</div>
+    <div class="end-builder" style="margin-bottom:12px"><span class="end-label">My pillar →</span><input class="end-input" placeholder="Which pillar? What's your end?" oninput="saveToStorage('ht-1-end',this.value)"></div>
+    <div class="ht-grid">
+      <div><div class="ht-step-label">Connect</div><div class="ht-step-note">Topic → your pillar world</div><textarea class="q-answer-area" placeholder="Sentence 1..." style="min-height:60px" oninput="saveToStorage('ht-1-a',this.value)"></textarea></div>
+      <div><div class="ht-step-label">Story</div><div class="ht-step-note">One specific moment</div><textarea class="q-answer-area" placeholder="Sentence 2..." style="min-height:60px" oninput="saveToStorage('ht-1-b',this.value)"></textarea></div>
+      <div><div class="ht-step-label">Close</div><div class="ht-step-note">What you're doing / what you believe</div><textarea class="q-answer-area" placeholder="Sentence 3..." style="min-height:60px" oninput="saveToStorage('ht-1-c',this.value)"></textarea></div>
+    </div>
+  </div>
+
+  <div class="ht-card">
+    <div class="ht-prompt">Prompt: "Healthcare access in rural America."</div>
+    <div class="end-builder" style="margin-bottom:12px"><span class="end-label">My pillar →</span><input class="end-input" placeholder="Which pillar? What's your end?" oninput="saveToStorage('ht-2-end',this.value)"></div>
+    <div class="ht-grid">
+      <div><div class="ht-step-label">Connect</div><div class="ht-step-note">Topic → your pillar world</div><textarea class="q-answer-area" placeholder="Sentence 1..." style="min-height:60px" oninput="saveToStorage('ht-2-a',this.value)"></textarea></div>
+      <div><div class="ht-step-label">Story</div><div class="ht-step-note">One specific moment</div><textarea class="q-answer-area" placeholder="Sentence 2..." style="min-height:60px" oninput="saveToStorage('ht-2-b',this.value)"></textarea></div>
+      <div><div class="ht-step-label">Close</div><div class="ht-step-note">What you're doing / what you believe</div><textarea class="q-answer-area" placeholder="Sentence 3..." style="min-height:60px" oninput="saveToStorage('ht-2-c',this.value)"></textarea></div>
+    </div>
+  </div>
+
+  <div class="ht-card" style="margin-bottom:40px">
+    <div class="ht-prompt">Prompt: "The definition of success."</div>
+    <div class="end-builder" style="margin-bottom:12px"><span class="end-label">My pillar →</span><input class="end-input" placeholder="Which pillar? What's your end?" oninput="saveToStorage('ht-3-end',this.value)"></div>
+    <div class="ht-grid">
+      <div><div class="ht-step-label">Connect</div><div class="ht-step-note">Topic → your pillar world</div><textarea class="q-answer-area" placeholder="Sentence 1..." style="min-height:60px" oninput="saveToStorage('ht-3-a',this.value)"></textarea></div>
+      <div><div class="ht-step-label">Story</div><div class="ht-step-note">One specific moment</div><textarea class="q-answer-area" placeholder="Sentence 2..." style="min-height:60px" oninput="saveToStorage('ht-3-b',this.value)"></textarea></div>
+      <div><div class="ht-step-label">Close</div><div class="ht-step-note">What you're doing / what you believe</div><textarea class="q-answer-area" placeholder="Sentence 3..." style="min-height:60px" oninput="saveToStorage('ht-3-c',this.value)"></textarea></div>
+    </div>
+  </div>
+
+  <!-- Intro Builder -->
+  <div class="cat-header">
+    <div class="cat-dot"></div>
+    <div class="cat-title">Introduction Builder</div>
+    <div class="cat-line"></div>
+  </div>
+  <div class="builder-section">
+    <div class="builder-title">Your 30-Second Introduction</div>
+    <div class="builder-sub">Target: 60–75 words · ~30 seconds · Lead with the statistic, state your name, your mission, and the ask</div>
+    <div class="builder-template">
+      <strong>Your current opening (Session 2):</strong> "Every nine minutes, somebody in the United States loses their life to blood cancer. My name is Destiny. I'm an oncology nurse, and I see the weight of that statistic almost every single day — which is why I'm on a mission to change it..."<br><br>
+      <strong>Refinement goal:</strong> End the intro with a line that answers both judge questions: <em>Is she qualified?</em> and <em>Does she want the job?</em>
+    </div>
+    <div class="builder-label">Refined Introduction Draft</div>
+    <textarea class="builder-area" id="intro-draft" placeholder="Refine your intro here. Keep the 'every nine minutes' opener — it works. Focus on the last line: make sure 'I am here for my patients' or an equivalent is unmistakably present." oninput="saveToStorage('intro-draft',this.value);updateIntroWC()" style="min-height:120px"></textarea>
+    <div class="wc-row">
+      <div class="wc-wrap"><div class="wc-bar" id="intro-bar"></div></div>
+      <div class="wc-label" id="intro-label">0 / 75 words</div>
+    </div>
+    <div class="preview-label">Live Preview</div>
+    <div class="preview-box" id="intro-preview">Your introduction will appear here as you type...</div>
+    <div style="margin-top:16px">
+      <div class="timer-row">
+        <div class="timer-display" id="intro-timer">0:30</div>
+        <button class="timer-btn" id="intro-btn" onclick="toggleTimer('intro')">Start Timer</button>
+        <span class="timer-note">Timer turns red after :30</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Closer Builder -->
+  <div class="cat-header">
+    <div class="cat-dot"></div>
+    <div class="cat-title">Closing Statement Builder</div>
+    <div class="cat-line"></div>
+  </div>
+  <div class="builder-section" style="margin-bottom:40px">
+    <div class="builder-title">Your 30-Second Closer</div>
+    <div class="builder-sub">You nailed this in Session 2. Now make it automatic — run it daily until it flows without thinking.</div>
+    <div class="builder-template">
+      <strong>Your Session 2 closer:</strong> "Thank you for your time. In the nine minutes we've been talking, somebody has lost their life to blood cancer. That is why this mission means so much to me. As your next Miss Colorado, I promise I would lead with compassion, heart, and urgency — and I will change that statistic."<br><br>
+      <strong>Sierra's note:</strong> This is excellent. The only potential refinement is adding one specific line about <em>what</em> you'll do as Miss Colorado — not just how you'll lead. Consider: "...and I will change that statistic — starting with 3,000 names on that registry."
+    </div>
+    <div class="builder-label">Your Closer — Polished Version</div>
+    <textarea class="builder-area" id="closer-draft" placeholder="Write your finalized closer here. Practice it until it's in your bones." oninput="saveToStorage('closer-draft',this.value)" style="min-height:120px"></textarea>
+    <div style="margin-top:12px">
+      <div class="timer-row">
+        <div class="timer-display" id="closer-timer">0:30</div>
+        <button class="timer-btn" id="closer-btn" onclick="toggleTimer('closer')">Start Timer</button>
+        <span class="timer-note">Deliver it out loud every time you practice</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tips -->
+  <div class="cat-header">
+    <div class="cat-dot"></div>
+    <div class="cat-title">Performance Tips — Session 2 Emphasis</div>
+    <div class="cat-line"></div>
+  </div>
+  <div class="tips-grid">
+    <div class="tip-card">
+      <div class="tip-icon">🎯</div>
+      <div class="tip-title">Lead With the Best Line</div>
+      <div class="tip-body">Session 2 feedback on two answers: you buried your most powerful line 30 seconds in. Before every practice answer, ask yourself: <strong>what's the most compelling thing I want to say?</strong> That's your first sentence.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">😊</div>
+      <div class="tip-title">Smile on the Heavy Ones</div>
+      <div class="tip-body">Your warmth is real — but it needs to stay visible even on serious questions. <strong>Practice smiling at the beginning of every answer, not just the fun ones.</strong> It signals confidence, not flippancy.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🔢</div>
+      <div class="tip-title">Know Your Numbers Cold</div>
+      <div class="tip-body">Every 9 minutes · 3,000 goal · 100 registered in ~6 weeks · 60 Valentine's donors · $40K gala · 30 minutes to donate. <strong>Specifics are credibility.</strong> Run these numbers in your head daily until they're automatic.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">⏸</div>
+      <div class="tip-title">The GPS Pause</div>
+      <div class="tip-body">The breath you take before answering is when you set your destination. <strong>Judges don't experience your pause the way you do.</strong> What feels like 3 awkward seconds registers to them as thoughtfulness.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🕐</div>
+      <div class="tip-title">Target: 11–12 Questions</div>
+      <div class="tip-body">Session 1: 9 questions. Session 2: 8 questions. <strong>More questions = more chances for judges to see you.</strong> Tighten answers by 10–15 seconds each and you'll get there. The "begin with the end" framework is your fastest path to this.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">👗</div>
+      <div class="tip-title">Session 3: Dress the Part</div>
+      <div class="tip-body">Sierra has asked that you wear your interview outfit or at minimum your competition shoes for Session 3. <strong>Your body needs to know how to interview in those clothes.</strong> How you stand, how you sit, how you move — practice all of it.</div>
+    </div>
+  </div>
+
+  <!-- Session 2 Checklist -->
+  <div class="cat-header">
+    <div class="cat-dot"></div>
+    <div class="cat-title">Session 2 Action Items</div>
+    <div class="cat-line"></div>
+  </div>
+  <div class="checklist-box">
+    <ul class="checklist">
+      <li><input type="checkbox" onchange="saveChecklist()"> Watch Session 1 recording (Sierra will send) and Session 2 recording. For each answer: write down the moment you found your point and what you'd say differently now.</li>
+      <li><input type="checkbox" onchange="saveChecklist()"> Practice "Begin With the End in Mind" on every answer, every day. Say "My end is ___" out loud in practice until it becomes internal instinct.</li>
+      <li><input type="checkbox" onchange="saveChecklist()"> Confirm your Three Personal Pillars. Write them in the boxes above. Practice connecting 6 hot topic prompts (2 per pillar) using the three-sentence formula.</li>
+      <li><input type="checkbox" onchange="saveChecklist()"> Restructure HERStory answer: lead with "This is the exact moment I knew I was meant to be an oncology nurse." Practice this version out loud five times minimum.</li>
+      <li><input type="checkbox" onchange="saveChecklist()"> Restructure brand ambassador answer: lead with "I meet people where they are — that's my job as a nurse." Practice landing there immediately, no warm-up.</li>
+      <li><input type="checkbox" onchange="saveChecklist()"> Run your closer daily. Out loud. Every day between now and June 13th. It should feel like breathing.</li>
+      <li><input type="checkbox" onchange="saveChecklist()"> Practice smiling throughout — including on complex and heavy questions. Ask someone who watches you practice to flag when it drops.</li>
+      <li><input type="checkbox" onchange="saveChecklist()"> Book Session 3. Practice in interview outfit or at minimum your competition shoes.</li>
+    </ul>
+  </div>
+
+  <!-- Notes -->
+  <div class="cat-header">
+    <div class="cat-dot"></div>
+    <div class="cat-title">Practice Notes</div>
+    <div class="cat-line"></div>
+  </div>
+  <div style="background:var(--white);border:1px solid var(--border);padding:22px 26px;margin-bottom:60px">
+    <div class="builder-label" style="margin-bottom:7px">Session Notes & Observations</div>
+    <textarea class="builder-area" id="general-notes" placeholder="What did you notice watching the recording? What answers surprised you? What did you change after practicing? Keep notes here." oninput="saveToStorage('s2-notes',this.value)" style="min-height:150px"></textarea>
+  </div>
+
+</div>
+</div><!-- end tab-prep -->
+
+<footer class="page-footer">
+  ImpACT Consulting — Destiny Humphrey Session 2 — Competition: June 13 · Confidential
+</footer>
+
+<script>
+function showTab(id,btn){
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+
+function toggleQ(id){
+  const c=document.getElementById(id);
+  c.classList.toggle('open');
+  c.querySelector('.q-toggle').textContent=c.classList.contains('open')?'▴':'▾';
+}
+
+function countWords(t){return t.trim()===''?0:t.trim().split(/\s+/).length}
+
+function updateWC(el,labelId){
+  const l=document.getElementById(labelId);
+  if(l) l.textContent=countWords(el.value)+' words';
+}
+
+function updateIntroWC(){
+  const ta=document.getElementById('intro-draft');
+  if(!ta)return;
+  const wc=countWords(ta.value);
+  const bar=document.getElementById('intro-bar');
+  const label=document.getElementById('intro-label');
+  const pv=document.getElementById('intro-preview');
+  if(bar){bar.style.width=Math.min((wc/75)*100,100)+'%';bar.classList.toggle('over',wc>75)}
+  if(label) label.textContent=wc+' / 75 words';
+  if(pv) pv.textContent=ta.value||'Your introduction will appear here as you type...';
+}
+
+function saveAnswer(key,val){try{localStorage.setItem('s2_'+key,val)}catch(e){}}
+function loadAnswer(key){try{return localStorage.getItem('s2_'+key)||''}catch(e){return''}}
+function clearAnswer(key){
+  try{localStorage.removeItem('s2_'+key)}catch(e){}
+  const c=document.getElementById(key);
+  if(c){const ta=c.querySelector('textarea');if(ta){ta.value='';updateWC(ta,'wc-'+key)}}
+}
+function saveToStorage(key,val){try{localStorage.setItem('s2_'+key,val)}catch(e){}}
+
+function saveChecklist(){
+  const checks=document.querySelectorAll('.checklist input[type="checkbox"]');
+  try{localStorage.setItem('s2_checklist',JSON.stringify(Array.from(checks).map(c=>c.checked)))}catch(e){}
+}
+
+function loadAll(){
+  document.querySelectorAll('[data-key]').forEach(el=>{
+    const key=el.getAttribute('data-key');
+    const val=loadAnswer(key);
+    if(val){
+      el.value=val;
+      const wl=document.getElementById('wc-'+key);
+      if(wl&&el.tagName==='TEXTAREA') updateWC(el,'wc-'+key);
+    }
+  });
+  ['intro-draft','closer-draft','general-notes'].forEach(k=>{
+    const el=document.getElementById(k);
+    if(el){try{const v=localStorage.getItem('s2_'+k);if(v)el.value=v}catch(e){}}
+  });
+  ['pillar-1','pillar-2','pillar-3'].forEach(k=>{
+    try{const v=localStorage.getItem('s2_'+k);if(v){const el=document.querySelector('[data-key="'+k+'"]');if(el)el.value=v}}catch(e){}
+  });
+  updateIntroWC();
+  try{
+    const states=JSON.parse(localStorage.getItem('s2_checklist')||'[]');
+    document.querySelectorAll('.checklist input[type="checkbox"]').forEach((c,i)=>{if(states[i])c.checked=true});
+  }catch(e){}
+  ['ht-1-end','ht-1-a','ht-1-b','ht-1-c','ht-2-end','ht-2-a','ht-2-b','ht-2-c','ht-3-end','ht-3-a','ht-3-b','ht-3-c'].forEach(k=>{
+    try{const v=localStorage.getItem('s2_'+k);if(v){const el=document.querySelector('[oninput*="'+k+'"]');if(el)el.value=v}}catch(e){}
+  });
+}
+
+const timers={};
+function toggleTimer(id){
+  const disp=document.getElementById(id+'-timer');
+  const btn=document.getElementById(id+'-btn');
+  if(timers[id]&&timers[id].running){
+    clearInterval(timers[id].interval);timers[id].running=false;
+    btn.textContent='Start Timer';btn.classList.remove('running');
+    disp.textContent='0:30';disp.className='timer-display';return;
+  }
+  let elapsed=0;
+  timers[id]={running:true};
+  btn.textContent='Stop';btn.classList.add('running');
+  timers[id].interval=setInterval(()=>{
+    elapsed++;
+    const r=30-elapsed;
+    if(r>0){disp.textContent='0:'+String(r).padStart(2,'0');disp.className='timer-display'+(r<=10?' warn':'');}
+    else{const ov=elapsed-30;disp.textContent='+0:'+String(ov).padStart(2,'0');disp.className='timer-display over';}
+  },1000);
+}
+
+document.addEventListener('DOMContentLoaded',loadAll);
+</script>
+</body>
+</html>
